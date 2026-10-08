@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnSpace — Digital Workspace for the Steph-Tech Ecosystem</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+.os-hero{padding:140px 0 80px;text-align:center}
+.os-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;color:#00e676;padding:7px 16px;background:rgba(0,230,118,0.08);border:1px solid rgba(0,230,118,0.25);border-radius:50px;margin-bottom:24px}
+.os-hero h1{font-size:56px;font-weight:900;line-height:1.05;margin-bottom:22px;letter-spacing:-1.5px}
+.highlight-green{background:linear-gradient(135deg,#00e676,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.os-sub{font-size:18px;color:#8892b0;margin-bottom:32px;max-width:620px;margin-left:auto;margin-right:auto}
+.btn-os{display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#0a0a1a;background:linear-gradient(135deg,#00e676,#00d4ff);border-radius:50px;text-decoration:none;margin:0 8px 12px}
+.btn-os-out{display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#fff;background:transparent;border:1px solid #8892b0;border-radius:50px;text-decoration:none;margin:0 8px 12px}
+
+.os-mockup{display:flex;justify-content:center;margin:40px auto 80px;padding:0 20px}
+.os-window{width:100%;max-width:780px;background:#0d0d1f;border:1px solid rgba(0,230,118,0.25);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,230,118,0.12)}
+.os-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#12122a;border-bottom:1px solid rgba(255,255,255,0.06)}
+.os-dot{width:12px;height:12px;border-radius:50%}
+.os-dot.r{background:#ff5f56}.os-dot.y{background:#ffbd2e}.os-dot.g{background:#27c93f}
+.os-title{margin-left:12px;font-size:12px;color:#8892b0;font-weight:600}
+.os-app{display:grid;grid-template-columns:60px 1fr;min-height:380px}
+.os-side{padding:16px 0;background:#0a0a1a;border-right:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;align-items:center;gap:18px}
+.os-nav{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.04);border-radius:10px;font-size:16px;cursor:pointer}
+.os-nav.active{background:linear-gradient(135deg,#00e676,#00d4ff);color:#0a0a1a}
+.os-main{padding:20px}
+.os-greeting{font-size:18px;font-weight:700;margin-bottom:4px}
+.os-greeting-sub{font-size:13px;color:#8892b0;margin-bottom:20px}
+.os-widgets{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.os-widget{padding:16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px}
+.os-widget .label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#8892b0;text-transform:uppercase;margin-bottom:8px}
+.os-widget .value{font-size:22px;font-weight:800;color:#fff}
+.os-widget .value.green{color:#00e676}
+.os-widget .value.cyan{color:#00d4ff}
+.os-feed{padding:14px;background:rgba(0,230,118,0.04);border:1px solid rgba(0,230,118,0.15);border-radius:12px}
+.os-feed-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#00e676;margin-bottom:10px}
+.os-feed-item{font-size:12px;color:#c7d1e8;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.os-feed-item:last-child{border:none}
+
+.os-features{padding:80px 0;background:#050510}
+.os-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1100px;margin:40px auto 0}
+.os-card{padding:30px 24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px}
+.os-card .ico{font-size:34px;margin-bottom:14px}
+.os-card h3{font-size:18px;font-weight:700;margin-bottom:8px;color:#fff}
+.os-card p{font-size:14px;color:#8892b0}
+
+.os-price{padding:100px 0;text-align:center}
+.os-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1100px;margin:40px auto 0}
+.os-plan{padding:34px 26px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;text-align:left}
+.os-plan.feat{border-color:#00e676;background:rgba(0,230,118,0.05)}
+.os-plan .name{font-size:13px;font-weight:700;letter-spacing:2px;color:#00e676;text-transform:uppercase;margin-bottom:12px}
+.os-plan .price{font-size:36px;font-weight:900;color:#fff;margin-bottom:20px}
+.os-plan ul{list-style:none;padding:0;margin-bottom:24px}
+.os-plan li{font-size:14px;color:#8892b0;padding:8px 0}
+.os-plan li::before{content:'✓ ';color:#00e676;font-weight:700}
+.os-plan .btn-os,.os-plan .btn-os-out{width:100%;text-align:center;box-sizing:border-box;display:block;margin:0}
+
+@media(max-width:768px){
+.os-hero h1{font-size:34px}
+.os-grid,.os-plans{grid-template-columns:1fr}
+.os-widgets{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<div class="container">
+<a href="index.html" class="nav-brand">
+<div class="logo-icon">◆</div>
+<div class="brand-text">
+<span class="logo-text">SOLIDMOVE</span>
+<span class="logo-sub">TECHNOLOGY</span>
+</div>
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="index.html#ecosystem">Ecosystem</a></li>
+<li><a href="index.html#pillars">Products</a></li>
+<li><a href="index.html#about">About</a></li>
+<li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+</ul>
+<div class="hamburger"><span></span><span></span><span></span></div>
+</div>
+</nav>
+
+<section class="os-hero">
+<div class="container">
+<div class="os-badge">● OnSpace · Digital Workspace</div>
+<h1>One Space.<br><span class="highlight-green">Everything Connected.</span></h1>
+<p class="os-sub">Projects, AI, payments, and community — all in one unified workspace, governed by DPY and protected by UMBRAE.</p>
+<a href="#pricing" class="btn-os">Open OnSpace →</a>
+<a href="#features" class="btn-os-out">Explore</a>
+</div>
+</section>
+
+<section class="os-mockup">
+<div class="os-window">
+<div class="os-bar">
+<span class="os-dot r"></span><span class="os-dot y"></span><span class="os-dot g"></span>
+<span class="os-title">onspace.ai · SolidMove workspace</span>
+</div>
+<div class="os-app">
+<div class="os-side">
+<div class="os-nav active">🏠</div>
+<div class="os-nav">🧠</div>
+<div class="os-nav">💳</div>
+<div class="os-nav">📁</div>
+<div class="os-nav">👥</div>
+</div>
+<div class="os-main">
+<div class="os-greeting">Hello, Stephen</div>
+<div class="os-greeting-sub">Welcome back to your workspace</div>
+<div class="os-widgets">
+<div class="os-widget">
+<div class="label">Wallet Balance</div>
+<div class="value green">₦2,540,600</div>
+</div>
+<div class="os-widget">
+<div class="label">Projects</div>
+<div class="value cyan">12</div>
+</div>
+<div class="os-widget">
+<div class="label">AI Chats</div>
+<div class="value">48</div>
+</div>
+<div class="os-widget">
+<div class="label">Community</div>
+<div class="value">4,312</div>
+</div>
+</div>
+<div class="os-feed">
+<div class="os-feed-label">● LIVE ACTIVITY</div>
+<div class="os-feed-item">💰 Payment received from Jane Cooper — +₦250,000</div>
+<div class="os-feed-item">🧠 OSA generated 3 code suggestions</div>
+<div class="os-feed-item">👥 New member joined Solidarity</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="features" class="os-features">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Core Features</span>
+<h2>Your Digital Headquarters</h2>
+<p>Everything you need, in one governed space.</p>
+</div>
+<div class="os-grid">
+<div class="os-card"><div class="ico">🏠</div><h3>Unified Dashboard</h3><p>See your wallet, projects, AI chats, and community in one place.</p></div>
+<div class="os-card"><div class="ico">🧠</div><h3>OSA Integration</h3><p>Chat with your AI assistant directly inside the workspace.</p></div>
+<div class="os-card"><div class="ico">💳</div><h3>PayClarity Wallet</h3><p>Send, receive, and manage money without leaving the app.</p></div>
+<div class="os-card"><div class="ico">📁</div><h3>Project Files</h3><p>Write, save, and organize code projects in DPY Core.</p></div>
+<div class="os-card"><div class="ico">👥</div><h3>Solidarity Community</h3><p>Connect with other builders, founders, and creators.</p></div>
+<div class="os-card"><div class="ico">🛡️</div><h3>UMBRAE Security</h3><p>Every action verified, logged, and protected by governance.</p></div>
+</div>
+</div>
+</section>
+
+<section id="pricing" class="os-price">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Pricing</span>
+<h2>Choose Your Space</h2>
+<p>Start free. Scale as you grow.</p>
+</div>
+<div class="os-plans">
+<div class="os-plan">
+<div class="name">Free</div>
+<div class="price">₦0</div>
+<ul><li>1 workspace</li><li>Basic AI access</li><li>5 projects</li><li>Community access</li></ul>
+<a href="#" class="btn-os-out">Get Started</a>
+</div>
+<div class="os-plan feat">
+<div class="name">Pro · Most Popular</div>
+<div class="price">₦3,000<span style="font-size:14px;color:#8892b0;">/mo</span></div>
+<ul><li>10 workspaces</li><li>Full AI access</li><li>Unlimited projects</li><li>Priority support</li></ul>
+<a href="#" class="btn-os">Start Free Trial</a>
+</div>
+<div class="os-plan">
+<div class="name">Business</div>
+<div class="price">₦15,000<span style="font-size:14px;color:#8892b0;">/mo</span></div>
+<ul><li>Unlimited workspaces</li><li>Team collaboration</li><li>Custom integrations</li><li>Dedicated manager</li></ul>
+<a href="#" class="btn-os-out">Contact Sales</a>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="logo-icon">◆</div>
+<span class="logo-text">SOLIDMOVE</span>
+<span class="logo-sub">TECHNOLOGY</span>
+<p>Building Africa's digital future.<br>RC 9619709 · TIN 2621248004799</p>
+</div>
+<div class="footer-links">
+<h4>Products</h4>
+<a href="payclarity.html">PayClarity</a>
+<a href="pyramidedi.html">PyramidEDI</a>
+<a href="onspace.html">OnSpace</a>
+<a href="#">OSA AI</a>
+</div>
+<div class="footer-links">
+<h4>Company</h4>
+<a href="index.html#about">About</a>
+<a href="index.html#ecosystem">Ecosystem</a>
+<a href="index.html#contact">Contact</a>
+</div>
+<div class="footer-links">
+<h4>Connect</h4>
+<a href="mailto:solidmovetechnologylimited@gmail.com">Email</a>
+<a href="https://github.com/Solidmove-Technology-Limited" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/stephen-osabuohein-3a897a393" target="_blank">LinkedIn</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 SOLIDMOVE TECHNOLOGY LIMITED. All rights reserved.</p>
+<p>Powered by Steph-Tech Ecosystem</p>
+</div>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+  </html>

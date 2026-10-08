@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PyramidEDI — Secure IDE & AI Workspace</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+.pe-hero{padding:140px 0 80px;text-align:center}
+.pe-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;color:#7b2ffc;padding:7px 16px;background:rgba(123,47,252,0.08);border:1px solid rgba(123,47,252,0.25);border-radius:50px;margin-bottom:24px}
+.pe-hero h1{font-size:56px;font-weight:900;line-height:1.05;margin-bottom:22px;letter-spacing:-1.5px}
+.highlight-purple{background:linear-gradient(135deg,#7b2ffc,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.pe-sub{font-size:18px;color:#8892b0;margin-bottom:32px;max-width:620px;margin-left:auto;margin-right:auto}
+.btn-pe{display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#fff;background:linear-gradient(135deg,#7b2ffc,#00d4ff);border-radius:50px;text-decoration:none;margin:0 8px 12px}
+.btn-pe-out{display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#fff;background:transparent;border:1px solid #8892b0;border-radius:50px;text-decoration:none;margin:0 8px 12px}
+
+.pe-ide{display:flex;justify-content:center;margin:40px auto 80px;padding:0 20px}
+.pe-window{width:100%;max-width:720px;background:#0d0d1f;border:1px solid rgba(123,47,252,0.25);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(123,47,252,0.15)}
+.pe-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#12122a;border-bottom:1px solid rgba(255,255,255,0.06)}
+.pe-dot{width:12px;height:12px;border-radius:50%}
+.pe-dot.r{background:#ff5f56}.pe-dot.y{background:#ffbd2e}.pe-dot.g{background:#27c93f}
+.pe-file{margin-left:12px;font-size:12px;color:#8892b0;font-family:monospace}
+.pe-body{display:grid;grid-template-columns:1fr 1fr;min-height:320px}
+.pe-editor{padding:18px;font-family:monospace;font-size:12px;line-height:1.8;color:#c7d1e8;border-right:1px solid rgba(255,255,255,0.06);overflow-x:auto}
+.pe-ln{color:#4a5578;margin-right:12px;user-select:none}
+.pe-kw{color:#ff79c6}.pe-fn{color:#50fa7b}.pe-str{color:#f1fa8c}.pe-cm{color:#6272a4;font-style:italic}
+.pe-ai{padding:18px;font-size:13px;color:#c7d1e8;background:rgba(123,47,252,0.03)}
+.pe-ai-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;color:#7b2ffc;background:rgba(123,47,252,0.1);padding:4px 10px;border-radius:50px;margin-bottom:12px}
+.pe-ai-msg{margin-bottom:12px;line-height:1.6}
+.pe-ai-msg strong{color:#00d4ff;font-weight:700}
+
+.pe-features{padding:80px 0;background:#050510}
+.pe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1100px;margin:40px auto 0}
+.pe-card{padding:30px 24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px}
+.pe-card .ico{font-size:34px;margin-bottom:14px}
+.pe-card h3{font-size:18px;font-weight:700;margin-bottom:8px;color:#fff}
+.pe-card p{font-size:14px;color:#8892b0}
+
+.pe-stack{padding:80px 0;text-align:center}
+.pe-stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;margin:40px auto 0}
+.pe-chip{padding:18px 12px;background:rgba(123,47,252,0.05);border:1px solid rgba(123,47,252,0.2);border-radius:12px;font-size:13px;font-weight:600;color:#c7d1e8}
+
+.pe-price{padding:100px 0;background:#050510;text-align:center}
+.pe-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1100px;margin:40px auto 0}
+.pe-plan{padding:34px 26px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;text-align:left}
+.pe-plan.feat{border-color:#7b2ffc;background:rgba(123,47,252,0.05)}
+.pe-plan .name{font-size:13px;font-weight:700;letter-spacing:2px;color:#7b2ffc;text-transform:uppercase;margin-bottom:12px}
+.pe-plan .price{font-size:36px;font-weight:900;color:#fff;margin-bottom:20px}
+.pe-plan ul{list-style:none;padding:0;margin-bottom:24px}
+.pe-plan li{font-size:14px;color:#8892b0;padding:8px 0}
+.pe-plan li::before{content:'✓ ';color:#7b2ffc;font-weight:700}
+.pe-plan .btn-pe,.pe-plan .btn-pe-out{width:100%;text-align:center;box-sizing:border-box;display:block;margin:0}
+
+@media(max-width:768px){
+.pe-hero h1{font-size:34px}
+.pe-grid,.pe-plans,.pe-stack-grid{grid-template-columns:1fr}
+.pe-body{grid-template-columns:1fr}
+.pe-editor{border-right:none;border-bottom:1px solid rgba(255,255,255,0.06)}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<div class="container">
+<a href="index.html" class="nav-brand">
+<div class="logo-icon">◆</div>
+<div class="brand-text">
+<span class="logo-text">SOLIDMOVE</span>
+<span class="logo-sub">TECHNOLOGY</span>
+</div>
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="index.html#ecosystem">Ecosystem</a></li>
+<li><a href="index.html#pillars">Products</a></li>
+<li><a href="index.html#about">About</a></li>
+<li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+</ul>
+<div class="hamburger"><span></span><span></span><span></span></div>
+</div>
+</nav>
+
+<section class="pe-hero">
+<div class="container">
+<div class="pe-badge">● PyramidEDI · Powered by DPY Core</div>
+<h1>Write Code.<br><span class="highlight-purple">Think Clearly.</span></h1>
+<p class="pe-sub">A secure, level-based IDE and AI workspace. Write, test, run, and save code — with OSA at your side and UMBRAE protecting every action.</p>
+<a href="#pricing" class="btn-pe">Get Early Access →</a>
+<a href="#features" class="btn-pe-out">See Features</a>
+</div>
+</section>
+
+<section class="pe-ide">
+<div class="pe-window">
+<div class="pe-bar">
+<span class="pe-dot r"></span><span class="pe-dot y"></span><span class="pe-dot g"></span>
+<span class="pe-file">main.py</span>
+</div>
+<div class="pe-body">
+<div class="pe-editor">
+<div><span class="pe-ln">1</span><span class="pe-cm"># PyramidEDI workspace</span></div>
+<div><span class="pe-ln">2</span><span class="pe-kw">def</span> <span class="pe-fn">transfer</span>(user, amount):</div>
+<div><span class="pe-ln">3</span>    <span class="pe-kw">if</span> user.balance &gt;= amount:</div>
+<div><span class="pe-ln">4</span>        user.balance -= amount</div>
+<div><span class="pe-ln">5</span>        <span class="pe-kw">return</span> <span class="pe-str">"Success"</span></div>
+<div><span class="pe-ln">6</span>    <span class="pe-kw">return</span> <span class="pe-str">"Insufficient"</span></div>
+<div><span class="pe-ln">7</span></div>
+<div><span class="pe-ln">8</span><span class="pe-fn">print</span>(transfer(user1, <span class="pe-str">1000</span>))</div>
+</div>
+<div class="pe-ai">
+<span class="pe-ai-tag">OSA · AI ASSISTANT</span>
+<div class="pe-ai-msg"><strong>OSA:</strong> Your function works. Want me to add error handling?</div>
+<div class="pe-ai-msg"><strong>OSA:</strong> I can also generate a test case.</div>
+<div class="pe-ai-msg" style="color:#8892b0;font-size:12px;">▍ask anything...</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="features" class="pe-features">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Core Features</span>
+<h2>Built for Focused Development</h2>
+<p>Everything you need — nothing you don't.</p>
+</div>
+<div class="pe-grid">
+<div class="pe-card"><div class="ico">💻</div><h3>Code Editor</h3><p>Syntax highlighting for HTML, CSS, JS, and Python.</p></div>
+<div class="pe-card"><div class="ico">🧠</div><h3>OSA AI Panel</h3><p>Ask questions, get suggestions, generate code inline.</p></div>
+<div class="pe-card"><div class="ico">⚡</div><h3>Sandbox Run</h3><p>Execute code in a secure, isolated environment.</p></div>
+<div class="pe-card"><div class="ico">💾</div><h3>Project Save</h3><p>Save and load projects from DPY Core backend.</p></div>
+<div class="pe-card"><div class="ico">🔐</div><h3>Level-Based Access</h3><p>Features unlock progressively as trust grows.</p></div>
+<div class="pe-card"><div class="ico">🛡️</div><h3>UMBRAE Security</h3><p>Link safety checks, action detection, full audit trail.</p></div>
+</div>
+</div>
+</section>
+
+<section class="pe-stack">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">The Stack</span>
+<h2>Built on Modern Technology</h2>
+<p>Powered by the same core that runs the entire ecosystem.</p>
+</div>
+<div class="pe-stack-grid">
+<div class="pe-chip">Pyramide Platform</div>
+<div class="pe-chip">DPY Core Engine</div>
+<div class="pe-chip">FastAPI Backend</div>
+<div class="pe-chip">PostgreSQL</div>
+<div class="pe-chip">JWT Auth</div>
+<div class="pe-chip">UMBRAE Layer</div>
+<div class="pe-chip">OSA AI</div>
+<div class="pe-chip">GitHub Pages</div>
+</div>
+</div>
+</section>
+
+<section id="pricing" class="pe-price">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Pricing</span>
+<h2>Start Free. Scale When Ready.</h2>
+<p>Simple, transparent plans for every developer level.</p>
+</div>
+<div class="pe-plans">
+<div class="pe-plan">
+<div class="name">Free</div>
+<div class="price">₦0</div>
+<ul><li>1 project</li><li>Basic AI panel</li><li>Read-only mode</li></ul>
+<a href="#" class="btn-pe-out">Start Free</a>
+</div>
+<div class="pe-plan feat">
+<div class="name">Pro · Most Popular</div>
+<div class="price">₦2,500<span style="font-size:14px;color:#8892b0;">/mo</span></div>
+<ul><li>10 projects</li><li>Full AI panel</li><li>Run code in sandbox</li><li>Save & load projects</li></ul>
+<a href="#" class="btn-pe">Start Free Trial</a>
+</div>
+<div class="pe-plan">
+<div class="name">Business</div>
+<div class="price">₦10,000<span style="font-size:14px;color:#8892b0;">/mo</span></div>
+<ul><li>Unlimited projects</li><li>Team collaboration</li><li>Priority AI</li><li>Dedicated support</li></ul>
+<a href="#" class="btn-pe-out">Contact Sales</a>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="logo-icon">◆</div>
+<span class="logo-text">SOLIDMOVE</span>
+<span class="logo-sub">TECHNOLOGY</span>
+<p>Building Africa's digital future.<br>RC 9619709 · TIN 2621248004799</p>
+</div>
+<div class="footer-links">
+<h4>Products</h4>
+<a href="payclarity.html">PayClarity</a>
+<a href="pyramidedi.html">PyramidEDI</a>
+<a href="#">OnSpace</a>
+<a href="#">OSA AI</a>
+</div>
+<div class="footer-links">
+<h4>Company</h4>
+<a href="index.html#about">About</a>
+<a href="index.html#ecosystem">Ecosystem</a>
+<a href="index.html#contact">Contact</a>
+</div>
+<div class="footer-links">
+<h4>Connect</h4>
+<a href="mailto:solidmovetechnologylimited@gmail.com">Email</a>
+<a href="https://github.com/Solidmove-Technology-Limited" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/stephen-osabuohein-3a897a393" target="_blank">LinkedIn</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 SOLIDMOVE TECHNOLOGY LIMITED. All rights reserved.</p>
+<p>Powered by Steph-Tech Ecosystem</p>
+</div>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSA — Your Intelligent AI Assistant</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+.osa-hero{padding:140px 0 80px;text-align:center}
+.osa-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;color:#00d4ff;padding:7px 16px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);border-radius:50px;margin-bottom:24px}
+.osa-hero h1{font-size:56px;font-weight:900;line-height:1.05;margin-bottom:22px;letter-spacing:-1.5px}
+.highlight-osa{background:linear-gradient(135deg,#00d4ff,#7b2ffc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.osa-sub{font-size:18px;color:#8892b0;margin-bottom:32px;max-width:620px;margin-left:auto;margin-right:auto}
+.btn-osa{display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#0a0a1a;background:linear-gradient(135deg,#00d4ff,#7b2ffc);border-radius:50px;text-decoration:none;margin:0 8px 12px;color:#fff}
+.btn-osa-out{display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#fff;background:transparent;border:1px solid #8892b0;border-radius:50px;text-decoration:none;margin:0 8px 12px}
+
+.osa-chat{display:flex;justify-content:center;margin:40px auto 80px;padding:0 20px}
+.osa-window{width:100%;max-width:640px;background:#0d0d1f;border:1px solid rgba(0,212,255,0.25);border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,212,255,0.15)}
+.osa-bar{display:flex;align-items:center;gap:10px;padding:14px 20px;background:#12122a;border-bottom:1px solid rgba(255,255,255,0.06)}
+.osa-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#7b2ffc);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:14px}
+.osa-name{font-size:14px;font-weight:700;color:#fff}
+.osa-status{font-size:11px;color:#00e676}
+.osa-body{padding:24px 20px;min-height:280px}
+.osa-msg{margin-bottom:16px;font-size:14px;line-height:1.6}
+.osa-msg.user{text-align:right}
+.osa-msg.user span{display:inline-block;padding:10px 16px;background:rgba(255,255,255,0.05);border-radius:16px 16px 4px 16px;color:#c7d1e8;max-width:80%;text-align:left}
+.osa-msg.ai span{display:inline-block;padding:12px 16px;background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(123,47,252,0.08));border:1px solid rgba(0,212,255,0.15);border-radius:16px 16px 16px 4px;color:#c7d1e8;max-width:85%;text-align:left}
+.osa-msg.ai span strong{color:#00d4ff}
+.osa-input{display:flex;gap:8px;padding:12px 16px;border-top:1px solid rgba(255,255,255,0.06)}
+.osa-input input{flex:1;padding:12px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;color:#fff;font-family:inherit;font-size:13px}
+.osa-input button{width:44px;height:44px;border-radius:50%;border:none;background:linear-gradient(135deg,#00d4ff,#7b2ffc);color:#fff;font-size:16px;cursor:pointer}
+
+.osa-features{padding:80px 0;background:#050510}
+.osa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1100px;margin:40px auto 0}
+.osa-card{padding:30px 24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px}
+.osa-card .ico{font-size:34px;margin-bottom:14px}
+.osa-card h3{font-size:18px;font-weight:700;margin-bottom:8px;color:#fff}
+.osa-card p{font-size:14px;color:#8892b0}
+
+.osa-cap{padding:80px 0;text-align:center}
+.osa-cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;margin:40px auto 0}
+.osa-chip{padding:22px 14px;background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.15);border-radius:14px;font-size:13px;font-weight:600;color:#c7d1e8}
+.osa-chip .em{font-size:24px;display:block;margin-bottom:8px}
+
+.osa-cta{padding:100px 0;background:#050510;text-align:center}
+
+@media(max-width:768px){
+.osa-hero h1{font-size:34px}
+.osa-grid{grid-template-columns:1fr}
+.osa-cap-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<div class="container">
+<a href="index.html" class="nav-brand">
+<div class="logo-icon">◆</div>
+<div class="brand-text">
+<span class="logo-text">SOLIDMOVE</span>
+<span class="logo-sub">TECHNOLOGY</span>
+</div>
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="index.html#ecosystem">Ecosystem</a></li>
+<li><a href="index.html#pillars">Products</a></li>
+<li><a href="index.html#about">About</a></li>
+<li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+</ul>
+<div class="hamburger"><span></span><span></span><span></span></div>
+</div>
+</nav>
+
+<section class="osa-hero">
+<div class="container">
+<div class="osa-badge">● OSA · AI Engine of the Ecosystem</div>
+<h1>Ask Anything.<br><span class="highlight-osa">Get Clarity.</span></h1>
+<p class="osa-sub">OSA is your intelligent assistant across the entire Steph-Tech ecosystem. It writes code, analyzes data, drafts strategies, and answers questions — powered by DPY Core.</p>
+<a href="#try" class="btn-osa">Try OSA →</a>
+<a href="#features" class="btn-osa-out">See Capabilities</a>
+</div>
+</section>
+
+<section id="try" class="osa-chat">
+<div class="osa-window">
+<div class="osa-bar">
+<div class="osa-avatar">OSA</div>
+<div>
+<div class="osa-name">OSA Assistant</div>
+<div class="osa-status">● Online</div>
+</div>
+</div>
+<div class="osa-body">
+<div class="osa-msg user"><span>Help me build a payment function</span></div>
+<div class="osa-msg ai"><span><strong>OSA:</strong> I'll create a FastAPI endpoint with JWT auth, wallet validation, and transaction logging. Here's the starter code:<br><br><code style="font-family:monospace;font-size:12px;color:#7b2ffc;">@router.post("/send")<br>def send_money(...):<br>    ...</code></span></div>
+<div class="osa-msg user"><span>What's my wallet balance?</span></div>
+<div class="osa-msg ai"><span><strong>OSA:</strong> Your current balance is <strong>₦2,540,600.00</strong>. You've received ₦330,000 today.</span></div>
+</div>
+<div class="osa-input">
+<input type="text" placeholder="Ask OSA anything..." readonly>
+<button>→</button>
+</div>
+</div>
+</section>
+
+<section id="features" class="osa-features">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Core Capabilities</span>
+<h2>One AI. Endless Uses.</h2>
+<p>OSA is trained to help you build, grow, and think.</p>
+</div>
+<div class="osa-grid">
+<div class="osa-card"><div class="ico">💻</div><h3>Code Generation</h3><p>Write functions, debug errors, and generate full modules.</p></div>
+<div class="osa-card"><div class="ico">📊</div><h3>Data Analysis</h3><p>Analyze payments, transactions, and patterns in real time.</p></div>
+<div class="osa-card"><div class="ico">📣</div><h3>Marketing Strategy</h3><p>Create campaigns, write copy, plan product launches.</p></div>
+<div class="osa-card"><div class="ico">✉️</div><h3>Professional Writing</h3><p>Draft emails, proposals, and investor decks.</p></div>
+<div class="osa-card"><div class="ico">🧠</div><h3>Strategic Thinking</h3><p>Brainstorm ideas, solve problems, plan roadmaps.</p></div>
+<div class="osa-card"><div class="ico">🔐</div><h3>Security Audits</h3><p>Review code and detect potential vulnerabilities.</p></div>
+</div>
+</div>
+</section>
+
+<section class="osa-cap">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Powered By</span>
+<h2>Built on Strong Foundations</h2>
+<p>OSA runs on the same core that powers the entire ecosystem.</p>
+</div>
+<div class="osa-cap-grid">
+<div class="osa-chip"><span class="em">◆</span>Pyramide Platform</div>
+<div class="osa-chip"><span class="em">🧬</span>DPY Core Engine</div>
+<div class="osa-chip"><span class="em">🛡️</span>UMBRAE Security</div>
+<div class="osa-chip"><span class="em">∞</span>Multi-Model Routing</div>
+</div>
+</div>
+</section>
+
+<section class="osa-cta">
+<div class="container">
+<div class="section-header">
+<span class="section-tag">Get Started</span>
+<h2>OSA is Free to Use</h2>
+<p>Start chatting with your AI assistant inside OnSpace.</p>
+</div>
+<a href="onspace.html" class="btn-osa">Open OnSpace →</a>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="logo-icon">◆</div>
+<span class="logo-text">SOLIDMOVE</span>
+<span class="logo-sub">TECHNOLOGY</span>
+<p>Building Africa's digital future.<br>RC 9619709 · TIN 2621248004799</p>
+</div>
+<div class="footer-links">
+<h4>Products</h4>
+<a href="payclarity.html">PayClarity</a>
+<a href="pyramidedi.html">PyramidEDI</a>
+<a href="onspace.html">OnSpace</a>
+<a href="osa.html">OSA AI</a>
+</div>
+<div class="footer-links">
+<h4>Company</h4>
+<a href="index.html#about">About</a>
+<a href="index.html#ecosystem">Ecosystem</a>
+<a href="index.html#contact">Contact</a>
+</div>
+<div class="footer-links">
+<h4>Connect</h4>
+<a href="mailto:solidmovetechnologylimited@gmail.com">Email</a>
+<a href="https://github.com/Solidmove-Technology-Limited" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/stephen-osabuohein-3a897a393" target="_blank">LinkedIn</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 SOLIDMOVE TECHNOLOGY LIMITED. All rights reserved.</p>
+<p>Powered by Steph-Tech Ecosystem</p>
+</div>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+  </html>

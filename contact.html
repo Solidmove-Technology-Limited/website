@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — SOLIDMOVE TECHNOLOGY LIMITED</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+.page-hero{padding:140px 0 60px;text-align:center}
+.page-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;color:#00d4ff;padding:7px 16px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);border-radius:50px;margin-bottom:24px}
+.page-hero h1{font-size:48px;font-weight:900;letter-spacing:-1px;margin-bottom:18px}
+.page-sub{font-size:17px;color:#8892b0;max-width:640px;margin:0 auto}
+.contact-section{padding:50px 0 90px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1000px;margin:0 auto}
+.c-card{padding:22px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;margin-bottom:16px}
+.c-card h4{font-size:13px;font-weight:700;color:#00d4ff;letter-spacing:1px;margin-bottom:8px}
+.c-card p{font-size:15px;color:#c7d1e8;margin:0;word-break:break-all}
+.c-card a{color:#c7d1e8;text-decoration:none}
+.form-card{padding:30px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,212,255,0.15);border-radius:20px}
+.form-card h3{font-size:20px;font-weight:800;margin-bottom:8px}
+.form-card .hint{font-size:13px;color:#8892b0;margin-bottom:20px}
+.form-card label{display:block;font-size:12px;font-weight:700;color:#8892b0;letter-spacing:0.5px;margin:14px 0 6px}
+.form-card input,.form-card textarea{width:100%;box-sizing:border-box;padding:13px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;color:#fff;font-family:inherit;font-size:14px}
+.form-card textarea{min-height:120px;resize:vertical}
+.form-btn{display:inline-block;width:100%;margin-top:20px;padding:14px;background:linear-gradient(135deg,#00d4ff,#7b2ffc);border:none;border-radius:50px;color:#fff;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;text-align:center}
+@media(max-width:768px){.page-hero h1{font-size:32px}.contact-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<div class="container">
+<a href="index.html" class="nav-brand">
+<div class="logo-icon">◆</div>
+<div class="brand-text"><span class="logo-text">SOLIDMOVE</span><span class="logo-sub">TECHNOLOGY</span></div>
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="leadership.html">Leadership</a></li>
+<li><a href="blog.html">Blog</a></li>
+<li><a href="contact.html" class="nav-cta">Contact</a></li>
+</ul>
+<div class="hamburger"><span></span><span></span><span></span></div>
+</div>
+</nav>
+
+<section class="page-hero">
+<div class="container">
+<span class="page-badge">CONTACT US</span>
+<h1>Get in Touch</h1>
+<p class="page-sub">Questions, partnership or product inquiries — we'd love to hear from you.</p>
+</div>
+</section>
+
+<section class="contact-section">
+<div class="container">
+<div class="contact-grid">
+<div>
+<div class="c-card">
+<h4>GENERAL INQUIRIES</h4>
+<p><a href="mailto:solidmovetechnologylimited@gmail.com">solidmovetechnologylimited@gmail.com</a></p>
+</div>
+<div class="c-card">
+<h4>BUSINESS & PARTNERSHIPS</h4>
+<p><a href="mailto:solidmovetechnologylimited@gmail.com">solidmovetechnologylimited@gmail.com</a><br><span style="font-size:12px;color:#8892b0">Business line stephen@solidmove.ai coming soon</span></p>
+</div>
+<div class="c-card">
+<h4>PHONE</h4>
+<p><a href="tel:+2349150783632">+234 915 078 3632</a></p>
+</div>
+<div class="c-card">
+<h4>ADDRESS</h4>
+<p>Solidmove Technology Limited<br>Benin City, Edo State, Nigeria</p>
+</div>
+<div class="c-card">
+<h4>FOLLOW US</h4>
+<p><a href="https://github.com/Solidmove-Technology-Limited" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/stephen-osabuohein-3a897a393" target="_blank">LinkedIn</a></p>
+</div>
+</div>
+<div class="form-card">
+<h3>Send a Message</h3>
+<p class="hint">Fill in the form and it opens your email app with your message ready to send.</p>
+<form onsubmit="event.preventDefault(); const s=document.getElementById('subject').value, b=document.getElementById('body').value; window.location.href='mailto:solidmovetechnologylimited@gmail.com?subject='+encodeURIComponent(s)+'&body='+encodeURIComponent(b);">
+<label for="name">YOUR NAME</label>
+<input type="text" id="name" placeholder="Full name" required>
+<label for="email">YOUR EMAIL</label>
+<input type="email" id="email" placeholder="you@example.com" required>
+<label for="subject">SUBJECT</label>
+<input type="text" id="subject" placeholder="What is this about?">
+<label for="body">MESSAGE</label>
+<textarea id="body" placeholder="Write your message here..." required></textarea>
+<button type="submit" class="form-btn">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="logo-icon">◆</div>
+<span class="logo-text">SOLIDMOVE</span>
+<span class="logo-sub">TECHNOLOGY</span>
+<p>Building Africa's digital future.<br>RC 9619709 · TIN 2621248004799</p>
+</div>
+<div class="footer-links">
+<h4>Products</h4>
+<a href="payclarity.html">PayClarity</a>
+<a href="pyramidedi.html">PyramidEDI</a>
+<a href="onspace.html">OnSpace</a>
+<a href="osa.html">OSA AI</a>
+</div>
+<div class="footer-links">
+<h4>Company</h4>
+<a href="about.html">About</a>
+<a href="leadership.html">Leadership</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+</div>
+<div class="footer-links">
+<h4>Connect</h4>
+<a href="mailto:solidmovetechnologylimited@gmail.com">Email</a>
+<a href="https://github.com/Solidmove-Technology-Limited" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/stephen-osabuohein-3a897a393" target="_blank">LinkedIn</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 SOLIDMOVE TECHNOLOGY LIMITED. All rights reserved.</p>
+<p>Powered by Steph-Tech Ecosystem</p>
+</div>
+</div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
